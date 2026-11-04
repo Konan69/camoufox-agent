@@ -1,0 +1,36 @@
+{
+  "repo": "camoufox-agent",
+  "accent": "#FF7A90",
+  "hero": {
+    "command": "uv run python main.py --os macos --url file:///tmp/cfx/checks.html",
+    "output": [
+      { "text": "test                           result", "style": "muted" },
+      { "text": "------------------------------------------", "style": "muted" },
+      { "text": "os                             macos" },
+      { "text": "test:Platform                  MacIntel" },
+      { "text": "test:Plugins length            5" },
+      { "text": "test:Screen                    1470x956" },
+      { "text": "test:WebDriver                 missing (passed)" },
+      { "text": "user_agent                     Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:152.0)" },
+      { "text": "webdriver                      undetected", "style": "accent" }
+    ],
+    "value": "A Linux box, seen by the page as a Mac with no WebDriver."
+  },
+  "diagram": {
+    "direction": "LR",
+    "nodes": [
+      { "id": "cli", "label": "main.py", "sublabel": "--os --device --url" },
+      { "id": "camoufox", "label": "Camoufox", "sublabel": "AsyncNewBrowser" },
+      { "id": "display", "label": "Display", "sublabel": "DISPLAY or Xvfb" },
+      { "id": "page", "label": "Page", "sublabel": "page.goto" },
+      { "id": "report", "label": "Report", "sublabel": "table + JSON" }
+    ],
+    "edges": [
+      { "from": "cli", "to": "camoufox", "label": "launch" },
+      { "from": "camoufox", "to": "display", "label": "headed" },
+      { "from": "camoufox", "to": "page", "label": "context" },
+      { "from": "page", "to": "report", "label": "checks" }
+    ],
+    "primary": ["cli", "camoufox", "page", "report"]
+  }
+}
