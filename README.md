@@ -1,5 +1,7 @@
 # camoufox-agent
 
+*A browser in a fake moustache. It walks into a page and reports what the page thought it saw.*
+
 A small runner that opens a page in [Camoufox](https://github.com/daijro/camoufox), a patched Firefox with a spoofed fingerprint and human-like cursor movement, and prints what the page could see of the browser.
 
 ![A terminal runs main.py with a macOS fingerprint against a local test page; the page reports a Mac platform and no WebDriver](docs/media/hero.gif)
