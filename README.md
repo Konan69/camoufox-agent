@@ -1,6 +1,6 @@
 # camoufox-agent
 
-*A browser in a fake moustache. It walks into a page and reports what the page thought it saw.*
+Open a page in a browser that does not look like a bot.
 
 A small runner that opens a page in [Camoufox](https://github.com/daijro/camoufox), a patched Firefox with a spoofed fingerprint and human-like cursor movement, and prints what the page could see of the browser.
 
